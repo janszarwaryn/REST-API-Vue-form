@@ -1,21 +1,21 @@
-### Project setup
-```
+### Project setup to install dependence
+``` 
 npm install
 ```
->4. Compile and Test Project using the command below
-### Compiles and hot-reloads for development
+
+### to Start local environment
 ```
 npm run serve
 ```
 
 ## Production Build
-### Compiles and minifies for production
+### build prod 
 ```
 npm run build
 ```
 
-## Run your unit tests
->Unit Test was written using Jest/vue Test Utils
+## run test
+>Jest/vue
 ```
 npm run test:unit
 ```
