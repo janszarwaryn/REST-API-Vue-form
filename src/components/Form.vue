@@ -37,7 +37,6 @@
                         <button :disabled="loading"  class="btn btn-send btn-lg " id="sendButton" type="button" @click="sendMessage()">
                             <span v-if="loading">
                                 <span
-                                
                                 class="spinner-border spinner-border-sm"
                                 role="status"
                                 aria-hidden="true"
@@ -61,14 +60,14 @@
     }
     .input, input:hover, input:focus, textarea, textarea:hover, textarea:focus{
         outline: none;
-        border: 1px solid #72CDEE;
+        border: 1px solid #575757;
         box-shadow: none;
     }
     ::placeholder,::-webkit-input-placeholder{
         color: #ccc;
     }
     .btn-send, .btn-send:hover{
-        background-color: #4FC1EA;
+        background-color: #737373;
         color: #fff;
 
     }
@@ -104,7 +103,7 @@ export default {
                 this.loading = false;
             }else if(this.name.length < 5 || this.name.length > 50){
                 this.error = true;
-                this.errorMsg = "Name must be up to 5 characters and not more than 50 characters"
+                this.errorMsg = "Name must be up to 5 and low then 50"
                 this.loading = false;
             }else if(this.email == ""){
                 this.error = true;
@@ -112,11 +111,11 @@ export default {
                 this.loading = false;
             }else if(!this.validEmail(this.email)){
                 this.error = true;
-                this.errorMsg = "Invalid email format, please enter a vaild email address using the format: name@domain.com"
+                this.errorMsg = "Invalid email format (format: name@domain.pl)"
                 this.loading = false;
             }else if(this.subject.length > 100){
                 this.error = true;
-                this.errorMsg = "Subject must be 100 characters or below"
+                this.errorMsg = "Subject must be 100 characters or lower"
                 this.loading = false;
             }else if(this.message == ""){
                 this.error = true;
@@ -124,7 +123,7 @@ export default {
                 this.loading = false;
             }else if(this.message.length > 500){
                 this.error = true;
-                this.errorMsg = "Message must be 500 characters or below"
+                this.errorMsg = "Message must be 500 characters or lower"
                 this.loading = false;
             }else{
                 const config = {
@@ -146,14 +145,14 @@ export default {
                     console.log(response)   
                     this.error = false;
                     this.successData = true
-                    this.errorMsg =  "Your form was submitted successfully, thank you for reaching out to us, we will get back to you shortly."
+                    this.errorMsg =  "Successfully sent"
                     this.loading = false;
                     this.subject = ''
                     this.message = '' 
                 })
                 .catch(() => {
                     this.error = true;
-                    this.errorMsg =  "Sorry an error occured while sending your message, please wait a few moments, reload the page ad try again."
+                    this.errorMsg =  "Error"
                     this.loading = false;
                 });
             }
